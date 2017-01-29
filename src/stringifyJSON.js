@@ -20,6 +20,13 @@ var stringifyJSON = function(obj) {
          return "null";
       } else if (typeof(obj)==="string") {
         return '"'+obj+'"';
+      } else if (Array.isArray(obj)) {
+        // return stringifyJSON(obj[n]);
+        var result=[];
+        for (var i = 0; i < obj.length; i++) {
+          result.push(stringifyJSON(obj[i]));
+        }
+        return "[" +result.join(",")+ "]";
       }
       return obj.toString();
   }
