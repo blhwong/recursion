@@ -20,8 +20,6 @@ var stringifyJSON = function(obj) {
         for (var i in obj) {
           if((typeof obj[i] !== 'function') && (obj[i] !== undefined)) {
             result.push('"' + i + '"' + ":" + stringifyJSON(obj[i]));
-          } else {
-            continue;
           }
         }
         return '{' + result.join(',') + '}';
