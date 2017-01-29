@@ -31,6 +31,7 @@ var stringifyJSON = function(obj) {
   }
   return result + "}";
 };
+
 /*
 var stringifiableObjects = [
   9,
@@ -55,7 +56,21 @@ var stringifiableObjects = [
   [{'a': 'b'}, {'c': 'd'}],
   {'a': [], 'c': {}, 'b': true}
 ];
-*/
+>> [9,null,true,false,"Hello world",[],[8],["hi"],[8,"hi"],[1,0,-1,-0.3,0.3,1343.32,3345,0.00011999999999999999],[8,[[],3,4]],[[[["foo"]]]],{},{"a":"apple"},{"foo":true,"bar":false,"baz":null},{"boolean, true":true,"boolean, false":false,"null":null},{"a":{"b":"c"}},{"a":["b","c"]},[{"a":"b"},{"c":"d"}],{"a":[],"c":{},"b":true}]
+
+
+var stringifyJSON = function(obj) {
+  //create empty result string (accumulator)
+  _.reduce(obj, function(current, key, accumulator) {
+    // if not a function or undefined
+      // if null
+        // concat null into accumulator
+      concat current into accumulator
+
+  }, accumulator);
+  return accumulator;
+}
+
 
 // var myObj = { "name":"John", "age":31, "city":"New York", "grades":[90, 90, 90, [100, 100, 100]] };
 // console.log(JSON.stringify(myObj));
