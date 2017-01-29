@@ -14,10 +14,25 @@ var stringifyJSON = function(obj) {
     // if(obj[key] is Array or Object)
       // use recursion
   // output result
-  //create empty result string (accumulator)
+
+  if((typeof(obj)!=="function") && (obj!==undefined)) {
+      if (obj===null) {
+         return "null";
+      } else if (typeof(obj)==="string") {
+        return '"'+obj+'"';
+      }
+      return obj.toString();
+  }
+}
+
+
+/*
+
+
+console.log(obj);
   var accumulator="";
   _.reduce(obj, function(current, key, accumulator) {
-    if((typeof(current)!=="function") || (current!==undefined)) {
+    if((typeof(current)!=="function") && (current!==undefined)) {
       if (current===null) {
          accumulator = accumulator + "null";
       }
@@ -25,10 +40,9 @@ var stringifyJSON = function(obj) {
     }
   }, accumulator);
   return accumulator;
-}
 
 
-/*  var result = "{";
+var result = "{";
   for (var key in obj) {
     if (Array.isArray(obj[key])) {
         //for(var i=0; i<obj[key].length; i++) {
